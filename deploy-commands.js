@@ -34,9 +34,10 @@ const rest = new REST().setToken(token);
 
 		// The put method is used to fully refresh all commands in the guild with the current set
 		const data = await rest.put(
-            // 특정서버에 배포
+            // 중복배포를 피하기위해 개발자용 application, token을 따로생성하는게 좋음
+            // 특정서버에 배포 
 			Routes.applicationGuildCommands(clientId, guildId),
-            // 전체서버에 배포
+            // 전체서버에 배포 
             // Routes.applicationGuildCommands(clientId),
 			{ body: commands },
 		);
